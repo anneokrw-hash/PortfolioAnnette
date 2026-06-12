@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annette Okoronkwo | Portfolio UGC & DA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+        :root {
+            --primary: #1a1a1a;
+            --accent: #8b0000; /* Ton rouge bordeaux signature */
+            --bg-light: #fcfbf9;
+            --text-dark: #333333;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar scrollee */
+        .navbar {
+            transition: all 0.4s ease;
+        }
+        .navbar.scrolled {
+            background-color: rgba(252, 251, 249, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        /* Bouton dynamique */
+        .btn-accent {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-accent::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 0; height: 100%;
+            background-color: var(--accent);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        .btn-accent:hover::before {
+            width: 100%;
+        }
+
+        .gallery-item {
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox CSS */
+        #lightbox {
+            backdrop-filter: blur(5px);
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Filtres */
+        .filter-btn.active {
+            background-color: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav id="navbar" class="navbar fixed w-full top-0 z-50 py-6 px-6 md:px-12 flex justify-between items-center text-gray-900">
+        <a href="#" class="font-serif text-3xl font-bold tracking-wider">A<span class="text-[#8b0000]">.</span>O</a>
+        
+        <div class="hidden md:flex gap-8 text-sm font-semibold tracking-widest uppercase">
+            <a href="#about" class="hover:text-[#8b0000] transition">Qui suis-je</a>
+            <a href="#services" class="hover:text-[#8b0000] transition">Expertises</a>
+            <a href="#portfolio" class="hover:text-[#8b0000] transition">Galerie</a>
+            <a href="#contact" class="hover:text-[#8b0000] transition">Contact</a>
+        </div>
+        
+        <a href="CV.html" target="_blank" class="btn-accent px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hidden md:block">
+            Mon CV
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+        <!-- Background décoratif -->
+        <div class="absolute inset-0 z-0 opacity-5">
+            <img src="shooot.jpeg" alt="Background" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="relative z-10 text-center max-w-4xl mx-auto fade-in-up">
+            <p class="text-[#8b0000] font-bold tracking-[0.2em] uppercase text-sm mb-6">Portfolio Créatif</p>
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+                Chargée de communication <br><span class="italic font-light">&</span> Créatrice UGC
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Je donne vie à l'identité des marques à travers des visuels authentiques, un storytelling immersif et des stratégies digitales engageantes.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#portfolio" class="btn-accent px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest">
+                    Voir mes projets
+                </a>
+                <a href="#about" class="px-8 py-4 rounded-full border border-gray-300 text-sm font-bold uppercase tracking-widest hover:border-gray-800 transition">
+                    Me découvrir
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            
+            <div class="relative fade-in-up">
+                <!-- Photo de présentation -->
+                <img src="Photo de moi 3.jpeg" alt="Annette Okoronkwo" class="w-full h-auto object-cover rounded-sm shadow-2xl z-10 relative">
+                <!-- Déco visuelle -->
+                <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-[#8b0000] z-0"></div>
+            </div>
+
+            <div class="fade-in-up">
+                <h2 class="text-4xl md:text-5xl mb-6">À propos de moi.</h2>
+                <div class="w-16 h-1 bg-[#8b0000] mb-8"></div>
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    "Parlant cinq langues et maîtrisant le langage universel de la créativité, je donne vie à vos mots et à vos idées."
+                </p>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    Basée en Île-de-France, je suis passionnée par la beauté de l'image et l'impact des mots. Qu'il s'agisse de créer du contenu UGC ultra-convertissant, de designer une identité visuelle complète ou de diriger un shooting, j'allie rigueur esthétique et stratégie marketing.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-2 uppercase text-xs tracking-wider">Mon Profil</h4>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li><i class="fas fa-check text-[#8b0000] mr-2"></i> Créatrice UGC / DA</li>
+                            <li><i class="fas fa-check text-[#8b0000] mr-2"></i> Polyglotte (FR, EN, IGBO, RU, ES)</li>
+                            <li><i class="fas fa-check text-[#8b0000] mr-2"></i> Alternance 4j/1j</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-2 uppercase text-xs tracking-wider">Mes Outils</h4>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li><i class="fas fa-pen-nib text-[#8b0000] mr-2"></i> Suite Adobe & Figma</li>
+                            <li><i class="fas fa-camera text-[#8b0000] mr-2"></i> Photographie Studio</li>
+                            <li><i class="fas fa-robot text-[#8b0000] mr-2"></i> IA (Midjourney, ChatGPT)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="services" class="py-24 px-6 md:px-12 bg-[#f9f8f6]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl mb-4">Mes Expertises</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Ce que je peux apporter à votre marque pour booster votre visibilité et votre image.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Expertise 1 -->
+                <div class="bg-white p-10 shadow-lg hover:-translate-y-2 transition duration-300 fade-in-up">
+                    <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-[#8b0000] text-2xl">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-2xl mb-4">Création UGC</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Création de vidéos organiques et Paid Ads (Tiktok, Reels). Unboxing, tutoriels, témoignages authentiques qui génèrent de la conversion et engagent la communauté.
+                    </p>
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#8b0000]">Skincare • Beauty • Lifestyle</span>
+                </div>
+
+                <!-- Expertise 2 -->
+                <div class="bg-white p-10 shadow-lg hover:-translate-y-2 transition duration-300 fade-in-up" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-[#8b0000] text-2xl">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <h3 class="text-2xl mb-4">Direction Artistique</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Conception visuelle globale. Réalisation de moodboards, photographie produit haut de gamme, stylisme et direction de shootings en studio ou en extérieur.
+                    </p>
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#8b0000]">Éditorial • Photographie • Produit</span>
+                </div>
+
+                <!-- Expertise 3 -->
+                <div class="bg-white p-10 shadow-lg hover:-translate-y-2 transition duration-300 fade-in-up" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-[#8b0000] text-2xl">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-2xl mb-4">Branding & Design</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Création d'identités visuelles percutantes. Conception de logos, cartes de visite, UI/UX Design pour applications, et templates pour les réseaux sociaux.
+                    </p>
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#8b0000]">Figma • Logo • Identité Visuelle</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-24 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl mb-4">Direction Artistique & Photographie</h2>
+                <div class="w-16 h-1 bg-[#8b0000] mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Éditorial mode, portraits studio, photographie événementielle et lifestyle urbain.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Item: Femme Nuit Urbaine -->
+                <div class="gallery-item relative overflow-hidden aspect-[4/5] bg-gray-100 rounded group cursor-pointer" onclick="openLightbox('shooot.jpeg')">
+                    <img src="shooot.jpeg" alt="Portrait Urbain Nuit" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Lifestyle Urbain</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Night in Paris</h3>
+                    </div>
+                </div>
+
+                <!-- Item: Homme Costume Nuit -->
+                <div class="gallery-item relative overflow-hidden aspect-[4/5] bg-gray-100 rounded group cursor-pointer" onclick="openLightbox('E1B2698D-516D-4E3D-99D0-9CA45A3AF6A5.jpeg')">
+                    <img src="E1B2698D-516D-4E3D-99D0-9CA45A3AF6A5.jpeg" alt="Éditorial Homme Costume" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Éditorial Mode</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Streetwear Chic</h3>
+                    </div>
+                </div>
+
+                <!-- Item: Portrait Studio Curly -->
+                <div class="gallery-item relative overflow-hidden aspect-[4/5] bg-gray-100 rounded group cursor-pointer" onclick="openLightbox('shoot2.jpg')">
+                    <img src="shoot2.jpg" alt="Portrait Studio Mode" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Photographie Studio</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Portrait Éditorial</h3>
+                    </div>
+                </div>
+
+                <!-- Item: Denza -->
+                <div class="gallery-item relative overflow-hidden aspect-[4/5] bg-gray-100 rounded group cursor-pointer" onclick="openLightbox('SHoot 7.jpeg')">
+                    <img src="SHoot 7.jpeg" alt="Denza Event" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Lifestyle Auto</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Denza Campagne</h3>
+                    </div>
+                </div>
+
+                <!-- Item: Portrait N&B 1 -->
+                <div class="gallery-item relative overflow-hidden aspect-[4/5] bg-gray-100 rounded group cursor-pointer" onclick="openLightbox('Shoot 6.jpeg')">
+                    <img src="Shoot 6.jpeg" alt="Portrait Studio" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Éditorial</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Portrait Studio N&B</h3>
+                    </div>
+                </div>
+
+                <!-- Item: Gala -->
+                <div class="gallery-item relative overflow-hidden aspect-[4/5] bg-gray-100 rounded group cursor-pointer" onclick="openLightbox('shoot 1.jpg')">
+                    <img src="shoot 1.jpg" alt="Gala" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Couverture Event</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Soirée de Gala</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 md:px-12 bg-[#f9f8f6]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl mb-4">Identité Visuelle & Logos</h2>
+                <div class="w-16 h-1 bg-[#8b0000] mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Création de branding et conception d'identités graphiques uniques pour les marques.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="gallery-item relative overflow-hidden aspect-square shadow-lg rounded group cursor-pointer" onclick="openLightbox('IMG_3532.jpeg')">
+                    <img src="LADIESDEPARIS.jpg" alt="Laidies de Paris" class="w-full h-full object-cover object-center">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Logo & Identité</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Le Girls Studio</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item relative overflow-hidden aspect-square shadow-lg rounded group cursor-pointer" onclick="openLightbox('IMG_3522.jpeg')">
+                    <img src="Identité.png" alt="ID" class="w-full h-full object-cover object-center">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Typographie & Logo</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Ink By Nathan</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl mb-4">Création de Cartes de Visite</h2>
+                <div class="w-16 h-1 bg-[#8b0000] mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Déclinaison de l'identité visuelle sur supports physiques et print.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="gallery-item relative overflow-hidden aspect-video shadow-xl rounded group cursor-pointer" onclick="openLightbox('IMG_2098.jpeg')">
+                    <img src="Carte de Visite LD.png" alt="Carte LD" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Business Card</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Josy Premium</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item relative overflow-hidden aspect-video shadow-xl rounded group cursor-pointer" onclick="openLightbox('IMG_3524.jpeg')">
+                    <img src="Josiane x.png" alt="Carte de visite " class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Business Card</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Nathan Dupont Tattoo</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 md:px-12 bg-[#f9f8f6]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl mb-4">Moodboards & Création Visuelle</h2>
+                <div class="w-16 h-1 bg-[#8b0000] mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Recherche iconographique, collages et affiches publicitaires.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="gallery-item relative overflow-hidden aspect-video shadow-lg rounded group cursor-pointer" onclick="openLightbox('0.jpg')">
+                    <img src="0.jpg" alt="Portrait Chinois" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Moodboard</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Portrait Chinois</h3>
+                    </div>
+                </div>
+
+                <div class="gallery-item relative overflow-hidden aspect-video shadow-lg rounded group cursor-pointer" onclick="openLightbox('IMG_2177.jpeg')">
+                    <img src="IMG_2177.jpeg" alt="Carambar Baddies" class="w-full h-full object-cover object-left">
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-60 opacity-0 flex flex-col justify-end p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="text-[#8b0000] text-xs font-bold uppercase tracking-widest mb-2">Affiche Publicitaire</span>
+                        <h3 class="text-white text-2xl font-serif translate-y-4 transition-transform duration-300 group-hover:translate-y-0">Carambar Baddies</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="uiux" class="py-24 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl mb-4">UI/UX Design & Prototypage</h2>
+                <div class="w-16 h-1 bg-[#8b0000] mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Création d'interfaces web et mobiles via Figma. Cliquez sur une carte pour explorer les maquettes PDF interactives.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- App Food -->
+                <div class="gallery-item relative overflow-hidden aspect-[4/5] bg-gray-100 rounded group cursor-pointer" onclick="window.open('Création App Figma.pdf', '_blank')">
+                    <div class="w-full h-full bg-gradient-to-br from-orange-500 to-red-600 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <i class="fab fa-figma text-7xl mb-6 drop-shadow-lg"></i>
+                        <h3 class="text-3xl font-serif mb-2">Food Delivery</h3>
+                        <p class="text-xs uppercase tracking-widest font-semibold opacity-90">Prototype App Mobile</p>
+                    </div>
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-80 opacity-0 flex flex-col justify-center items-center p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <i class="fas fa-external-link-alt text-white text-4xl mb-4"></i>
+                        <span class="text-white text-sm font-bold uppercase tracking-widest text-center">Ouvrir le PDF<br>Interactif</span>
+                    </div>
+                </div>
+
+                <!-- Clone Instagram -->
+                <div class="gallery-item relative overflow-hidden aspect-[4/5] bg-gray-100 rounded group cursor-pointer" onclick="window.open('Projet figma 1.pdf', '_blank')">
+                    <div class="w-full h-full bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <i class="fab fa-instagram text-7xl mb-6 drop-shadow-lg"></i>
+                        <h3 class="text-3xl font-serif mb-2">Social App</h3>
+                        <p class="text-xs uppercase tracking-widest font-semibold opacity-90">Redesign Instagram</p>
+                    </div>
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-80 opacity-0 flex flex-col justify-center items-center p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <i class="fas fa-external-link-alt text-white text-4xl mb-4"></i>
+                        <span class="text-white text-sm font-bold uppercase tracking-widest text-center">Découvrir<br>les Maquettes</span>
+                    </div>
+                </div>
+
+                <!-- Clone Pinterest -->
+                <div class="gallery-item relative overflow-hidden aspect-[4/5] bg-gray-100 rounded group cursor-pointer" onclick="window.open('Projet figma 2.pdf', '_blank')">
+                    <div class="w-full h-full bg-gradient-to-br from-red-600 to-red-900 flex flex-col items-center justify-center text-white p-6 text-center">
+                        <i class="fab fa-pinterest text-7xl mb-6 drop-shadow-lg"></i>
+                        <h3 class="text-3xl font-serif mb-2">Moodboard App</h3>
+                        <p class="text-xs uppercase tracking-widest font-semibold opacity-90">Redesign Pinterest</p>
+                    </div>
+                    <div class="overlay absolute inset-0 bg-black bg-opacity-80 opacity-0 flex flex-col justify-center items-center p-6 transition-opacity duration-300 group-hover:opacity-100">
+                        <i class="fas fa-external-link-alt text-white text-4xl mb-4"></i>
+                        <span class="text-white text-sm font-bold uppercase tracking-widest text-center">Découvrir<br>les Maquettes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black bg-opacity-95 hidden flex justify-center items-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-8 text-white text-4xl hover:text-[#8b0000] transition">&times;</button>
+        <img id="lightbox-img" src="" alt="Zoom" class="max-w-full max-h-[90vh] object-contain shadow-2xl">
+    </div>
+
+    <footer id="contact" class="bg-black text-white py-24 px-6 text-center">
+        <div class="max-w-3xl mx-auto fade-in-up">
+            <h2 class="text-4xl md:text-6xl mb-6">Prêt(e) à créer ?</h2>
+            <p class="text-gray-400 mb-10 text-lg">Discutons de votre prochaine campagne ou de mon intégration dans votre équipe en alternance.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+                <a href="mailto:Anne.okrw@gmail.com" class="btn-accent px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+                    <i class="fas fa-envelope"></i> M'envoyer un email
+                </a>
+                <a href="tel:0778799951" class="px-8 py-4 rounded-full border border-gray-600 text-sm font-bold uppercase tracking-widest hover:border-white transition flex items-center justify-center gap-2">
+                    <i class="fas fa-phone"></i> 07.78.79.99.51
+                </a>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 Annette Okoronkwo. Tous droits réservés.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-tiktok text-xl"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Navbar style on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Animations au scroll (Fade-in)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(element => {
+            observer.observe(element);
+        });
+
+        // 3. Lightbox logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(imgSrc) {
+            lightboxImg.src = imgSrc;
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Stop scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        // Close lightbox on clicking outside image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

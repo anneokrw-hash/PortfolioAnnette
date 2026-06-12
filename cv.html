@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>CV Annette Okoronkwo - Créatrice de Contenu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #8b0000; /* Un rouge bordeaux élégant inspiré de tes visuels */
+            --bg-sidebar: #f7f5f2; /* Un ton crème très léger */
+            --bg-main: #ffffff;
+            --text-color: #4a4a4a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #e0e0e0; /* Couleur de fond hors de la page A4 */
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .a4-page {
+            width: 210mm;
+            height: 297mm;
+            background: var(--bg-main);
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- COLONNE GAUCHE (SIDEBAR) --- */
+        .sidebar {
+            width: 35%;
+            background-color: var(--bg-sidebar);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #eaeaea;
+        }
+
+        .profile-img-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img-container img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            padding: 4px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 14pt;
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-info p {
+            font-size: 9.5pt;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .contact-info strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .skill-list, .language-list {
+            list-style-type: none;
+        }
+
+        .skill-list li, .language-list li {
+            font-size: 9.5pt;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 2px;
+            font-size: 10pt;
+        }
+
+        /* --- COLONNE DROITE (MAIN) --- */
+        .main-content {
+            width: 65%;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32pt;
+            line-height: 1.1;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 12pt;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .alternance-badge {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 9pt;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .profile-text {
+            font-size: 10pt;
+            line-height: 1.6;
+            color: var(--text-color);
+            text-align: justify;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18pt;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background-color: #dcdcdc;
+            margin-left: 15px;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .timeline-company {
+            font-size: 10pt;
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+
+        .timeline-date {
+            font-size: 9pt;
+            font-weight: 600;
+            color: #888;
+        }
+
+        .timeline-item ul {
+            padding-left: 15px;
+            margin-top: 8px;
+        }
+
+        .timeline-item li {
+            font-size: 9.5pt;
+            color: var(--text-color);
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+
+        /* --- SETTINGS POUR L'IMPRESSION PDF --- */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                display: block;
+            }
+            .a4-page {
+                width: 100%;
+                height: 100%;
+                box-shadow: none;
+                margin: 0;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="a4-page">
+        <!-- BARRE LATÉRALE -->
+        <aside class="sidebar">
+            <div class="profile-img-container">
+                <img src="Photo de moi 3.jpeg" alt="Annette Okoronkwo">
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Contact</h3>
+                <div class="contact-info">
+                    <p><strong>Tél :</strong> 07.78.79.99.51</p>
+                    <p><strong>Email :</strong> Anne.okrw@gmail.com</p>
+                    <p><strong>Localisation :</strong> Noisy-le-Grand, Île-de-France</p>
+                    <p><strong>Portfolio :</strong> <a href="index.html" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">Voir mon portfolio</a></p>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Expertises</h3>
+                <ul class="skill-list">
+                    <li><span class="skill-category">Marketing & Création</span>
+                        Stratégie de contenu, Création UGC, Analyse de données, Gestion de projet
+                    </li>
+                    <li><span class="skill-category">Suite Créative</span>
+                        Figma, Canva, InDesign, Illustrator, Photoshop, Lightroom, Premiere
+                    </li>
+                    <li><span class="skill-category">Outils Digitaux & Web</span>
+                        WordPress, Shopify, Dev HTML, Anti-Gravity, VS code
+                    </li>
+                    <li><span class="skill-category">Intelligence Artificielle</span>
+                        Gemini, ChatGPT, Midjourney, Claude, Grok
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Langues</h3>
+                <ul class="language-list">
+                    <li><strong>Français :</strong> Langue maternelle</li>
+                    <li><strong>Igbo :</strong> Langue maternelle</li>
+                    <li><strong>Anglais :</strong> Courant (Certif. Cambridge)</li>
+                    <li><strong>Russe :</strong> Intermédiaire (B2)</li>
+                    <li><strong>Espagnol :</strong> Intermédiaire (B2)</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CONTENU PRINCIPAL -->
+        <main class="main-content">
+            <header>
+                <h1>Annette<br>Okoronkwo</h1>
+                <h2>Chargée de Communication<br>& Créatrice UGC</h2>
+                <div class="alternance-badge">Recherche d'alternance : 4j entreprise / 1j école</div>
+                <p class="profile-text">
+                    "Parlant cinq langues et maîtrisant le langage universel de la créativité, je donne vie à vos mots et à vos idées." Passionnée par la direction artistique et forte d'une vraie sensibilité esthétique, j'accompagne les marques dans le déploiement de stratégies digitales authentiques et visuellement percutantes.
+                </p>
+            </header>
+
+            <section>
+                <h3 class="section-title">Expériences</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <span class="timeline-title">Assistant Web</span> | <span class="timeline-company">Juher Group</span>
+                        </div>
+                        <span class="timeline-date">2026</span>
+                    </div>
+                    <ul>
+                        <li>Gestion globale et mise à jour des contenus du site web.</li>
+                        <li>Optimisation de l'expérience utilisateur (UX/UI) pour maximiser les conversions.</li>
+                        <li>Création et intégration de contenus digitaux attractifs.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <span class="timeline-title">Assistante Communication</span> | <span class="timeline-company">Elysian Paris</span>
+                        </div>
+                        <span class="timeline-date">2025 – 2026</span>
+                    </div>
+                    <ul>
+                        <li>Déploiement opérationnel des stratégies digitales et social media.</li>
+                        <li>Création de contenus engageants (visuels, rédactionnels) pour les plateformes de la marque.</li>
+                        <li>Analyse des performances (KPIs) et reporting stratégique.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <span class="timeline-title">Responsable Admin & Event</span> | <span class="timeline-company">Tech-Event / Ejf / Tipi</span>
+                        </div>
+                        <span class="timeline-date">2021 – 2022</span>
+                    </div>
+                    <ul>
+                        <li>Gestion administrative complète et support opérationnel.</li>
+                        <li>Création et pilotage de projets pédagogiques et événementiels.</li>
+                        <li>Management des flux et coordination des équipes sur le terrain.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title">Formations</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <span class="timeline-title">Bachelor Marketing Digital</span> | <span class="timeline-company">ECITV</span>
+                        </div>
+                        <span class="timeline-date">2024 – 2027</span>
+                    </div>
+                    <ul>
+                        <li>Stratégie de communication, Création de campagnes publicitaires, Analyse de données.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <span class="timeline-title">Licence 1 Droit</span> | <span class="timeline-company">Sorbonne Université Paris 1</span>
+                        </div>
+                        <span class="timeline-date">2022 – 2023</span>
+                    </div>
+                    <ul>
+                        <li>Raisonnement juridique, analyse documentaire, rigueur et synthèse.</li>
+                    </ul>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
