@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Annette Okoronkwo - Créatrice de Contenu</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
@@ -31,11 +31,10 @@
 
         .a4-page {
             width: 210mm;
-            height: 297mm;
+            min-height: 297mm;
             background: var(--bg-main);
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
             display: flex;
-            overflow: hidden;
             position: relative;
         }
 
@@ -43,7 +42,7 @@
         .sidebar {
             width: 35%;
             background-color: var(--bg-sidebar);
-            padding: 40px 30px;
+            padding: 30px 25px;
             display: flex;
             flex-direction: column;
             border-right: 1px solid #eaeaea;
@@ -53,12 +52,12 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .profile-img-container img {
-            width: 160px;
-            height: 160px;
+            width: 140px;
+            height: 140px;
             object-fit: cover;
             border-radius: 50%;
             border: 3px solid var(--accent-color);
@@ -66,7 +65,7 @@
         }
 
         .sidebar-section {
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
         .sidebar-title {
@@ -114,13 +113,13 @@
         /* --- COLONNE DROITE (MAIN) --- */
         .main-content {
             width: 65%;
-            padding: 50px 40px;
+            padding: 40px 35px;
             display: flex;
             flex-direction: column;
         }
 
         header {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         h1 {
@@ -154,10 +153,10 @@
 
         .profile-text {
             font-size: 10pt;
-            line-height: 1.6;
+            line-height: 1.5;
             color: var(--text-color);
             text-align: justify;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-style: italic;
         }
 
@@ -179,7 +178,7 @@
         }
 
         .timeline-item {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             position: relative;
         }
 
@@ -218,6 +217,51 @@
             color: var(--text-color);
             line-height: 1.5;
             margin-bottom: 4px;
+        }
+
+        /* --- SETTINGS POUR LE RESPONSIVE --- */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            .a4-page {
+                width: 100%;
+                min-height: auto;
+                flex-direction: column;
+                box-shadow: none;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #eaeaea;
+                padding: 30px 20px;
+            }
+
+            .main-content {
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 26pt;
+            }
+
+            .profile-img-container img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .timeline-date {
+                margin-top: 2px;
+                margin-bottom: 5px;
+            }
         }
 
         /* --- SETTINGS POUR L'IMPRESSION PDF --- */
@@ -380,13 +424,11 @@
                 <div class="timeline-item">
                     <div class="timeline-header">
                         <div>
-                            <span class="timeline-title">BAC ES</span> | <span class="timeline-company">ECITV</span>
+                            <span class="timeline-title">Baccalauréat Économique et Social</span> | <span class="timeline-company">Lycee Louis Armand, EAUBONNE</span>
                         </div>
                         <span class="timeline-date">2021 – 2022</span>
                     </div>
-                    <ul>
-                        <li>Lycee Louis Armand, EAUBONNE.</li>
-                    </ul>
+
                 </div>
 
             </section>
